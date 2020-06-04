@@ -8,14 +8,34 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Black Jack</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong class="capitalize">Black Jack</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <div class="separator">Your Cards</div>
+  <ion-button color="success" id="yc1"></ion-button>
+  <ion-button color="primary" id="yc2"></ion-button>
+  <ion-button color="primary" id="yc3"></ion-button>
+  <ion-button color="primary" id="yc4"></ion-button>
+  <ion-button color="primary" id="yc5"></ion-button>
+
+  <div class="separator">Dealer Card</div>
+  <ion-button color="primary" id="dc1"></ion-button>
+  
+  <div class="separator">Cards</div>
+  <ion-button (click)="clickCard('A')">A</ion-button>
+  <ion-button (click)="clickCard('K')">K</ion-button>
+  <ion-button (click)="clickCard('Q')">Q</ion-button>
+  <ion-button (click)="clickCard('J')">J</ion-button>
+  <ion-button (click)="clickCard('10')">10</ion-button>
+  <ion-button (click)="clickCard('9')">9</ion-button>
+  <ion-button (click)="clickCard('8')">8</ion-button>
+  <ion-button (click)="clickCard('7')">7</ion-button>
+  <ion-button (click)="clickCard('6')">6</ion-button>
+  <ion-button (click)="clickCard('5')">5</ion-button>
+  <ion-button (click)="clickCard('4')">4</ion-button>
+  <ion-button (click)="clickCard('3')">3</ion-button>
+  <ion-button (click)="clickCard('2')">2</ion-button>
+
+  <div class="separator">Actions</div>
+  <ion-button expand="block" [disabled]="disabled" (click)="calculate()">Calculate</ion-button>
+  <ion-button expand="block" (click)="reset()" color="danger">Reset</ion-button>
+  
 </ion-content>
