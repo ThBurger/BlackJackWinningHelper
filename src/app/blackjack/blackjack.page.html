@@ -10,29 +10,29 @@
 <ion-content [fullscreen]="true">
 
   <div class="separator">Your Cards</div>
-  <ion-button color="success" id="yc1"></ion-button>
-  <ion-button color="primary" id="yc2"></ion-button>
-  <ion-button color="primary" id="yc3"></ion-button>
-  <ion-button color="primary" id="yc4"></ion-button>
-  <ion-button color="primary" id="yc5"></ion-button>
+  <ion-button disabled color="success" id="yc1"></ion-button>
+  <ion-button disabled color="primary" id="yc2"></ion-button>
+  <ion-button disabled color="primary" id="yc3"></ion-button>
+  <ion-button disabled color="primary" id="yc4"></ion-button>
+  <ion-button disabled color="primary" id="yc5"></ion-button>
 
   <div class="separator">Dealer Card</div>
-  <ion-button color="primary" id="dc1"></ion-button>
+  <ion-button disabled color="primary" id="dc1"></ion-button>
   
   <div class="separator">Cards</div>
-  <ion-button (click)="clickCard('A')">A</ion-button>
-  <ion-button (click)="clickCard('K')">K</ion-button>
-  <ion-button (click)="clickCard('Q')">Q</ion-button>
-  <ion-button (click)="clickCard('J')">J</ion-button>
-  <ion-button (click)="clickCard('10')">10</ion-button>
-  <ion-button (click)="clickCard('9')">9</ion-button>
-  <ion-button (click)="clickCard('8')">8</ion-button>
-  <ion-button (click)="clickCard('7')">7</ion-button>
-  <ion-button (click)="clickCard('6')">6</ion-button>
-  <ion-button (click)="clickCard('5')">5</ion-button>
-  <ion-button (click)="clickCard('4')">4</ion-button>
-  <ion-button (click)="clickCard('3')">3</ion-button>
-  <ion-button (click)="clickCard('2')">2</ion-button>
+  <ion-button (click)="clickCard('A')"><img src="assets/img/cards/ace_of_spades.png"></ion-button>
+  <ion-button (click)="clickCard('K')"><img src="assets/img/cards/king_of_spades2.png"></ion-button>
+  <ion-button (click)="clickCard('Q')"><img src="assets/img/cards/queen_of_spades2.png"></ion-button>
+  <ion-button (click)="clickCard('J')"><img src="assets/img/cards/jack_of_spades2.png"></ion-button>
+  <ion-button (click)="clickCard('10')"><img src="assets/img/cards/10_of_spades.png"></ion-button>
+  <ion-button (click)="clickCard('9')"><img src="assets/img/cards/9_of_spades.png"></ion-button>
+  <ion-button (click)="clickCard('8')"><img src="assets/img/cards/8_of_spades.png"></ion-button>
+  <ion-button (click)="clickCard('7')"><img src="assets/img/cards/7_of_spades.png"></ion-button>
+  <ion-button (click)="clickCard('6')"><img src="assets/img/cards/6_of_spades.png"></ion-button>
+  <ion-button (click)="clickCard('5')"><img src="assets/img/cards/5_of_spades.png"></ion-button>
+  <ion-button (click)="clickCard('4')"><img src="assets/img/cards/4_of_spades.png"></ion-button>
+  <ion-button (click)="clickCard('3')"><img src="assets/img/cards/3_of_spades.png"></ion-button>
+  <ion-button (click)="clickCard('2')"><img src="assets/img/cards/2_of_spades.png"></ion-button>
 
   <div class="separator">Actions</div>
   <ion-button expand="block" [disabled]="disabled" (click)="calculate()">Calculate</ion-button>

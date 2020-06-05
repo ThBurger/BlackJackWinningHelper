@@ -12,4 +12,12 @@ export class SupportPage implements OnInit {
   ngOnInit() {
   }
 
+  video() {
+    console.log('video');
+  }
+
+  coffee() {
+    console.log('coffee');
+  }
+
 }
