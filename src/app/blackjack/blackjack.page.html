@@ -34,6 +34,12 @@
   <ion-button (click)="clickCard('3')"><img src="assets/img/cards/3_of_spades.png"></ion-button>
   <ion-button (click)="clickCard('2')"><img src="assets/img/cards/2_of_spades.png"></ion-button>
 
+  <div class="separator">You should:</div>
+  <!-- Item Labels -->
+  <ion-item>
+    <ion-label id="action">Press calculate</ion-label>
+  </ion-item>
+
   <div class="separator">Actions</div>
   <ion-button expand="block" [disabled]="disabled" (click)="calculate()">Calculate</ion-button>
   <ion-button expand="block" (click)="reset()" color="danger">Reset</ion-button>

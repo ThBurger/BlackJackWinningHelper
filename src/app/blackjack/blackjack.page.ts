@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit, ElementRef, ViewChild, AfterViewInit} from '@angular/core';
 
 import { DOCUMENT} from '@angular/common';
+import { TwoCardCalculator } from './TwoCardCalculator';
 
 @Component({
   selector: 'app-blackjack',
@@ -12,7 +13,7 @@ export class BlackjackPage implements OnInit, AfterViewInit {
   public disabled = true;
   indexOfCards: number = 0;
   constructor(
-    @Inject(DOCUMENT) private doc: Document,) { }
+    @Inject(DOCUMENT) private doc: Document) { }
 
   ngOnInit() {
   }
@@ -57,7 +58,20 @@ export class BlackjackPage implements OnInit, AfterViewInit {
   }
 
   calculate(){
-    console.log('calculate');
+    let action = "";
+    if(this.indexOfCards == 3) {
+      action = TwoCardCalculator.calculate(
+        this.dc1.innerText,
+        this.yc1.innerText,
+        this.yc2.innerText);
+      } else if (this.indexOfCards == 4) {
+        action = "ThreeCardCalculator";
+      } else if (this.indexOfCards == 5) {
+        action = "FourCardCalculator";
+      } else if (this.indexOfCards == 6) {
+        action = "FiveCardCalculator";
+      }
+    this.action.innerText = action;
   }
 
   reset(){
@@ -65,7 +79,6 @@ export class BlackjackPage implements OnInit, AfterViewInit {
     this.disabled = true;
     this.resetText();
     this.resetColors();
-    
   }
 
   resetText() {
@@ -119,6 +132,11 @@ export class BlackjackPage implements OnInit, AfterViewInit {
 
   get dc1() : HTMLElement {
     return this.doc.getElementById("dc1");
+  }
+
+  
+  get action() : HTMLElement {
+    return this.doc.getElementById("action");
   }
 
 }
