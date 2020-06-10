@@ -2,6 +2,7 @@ import { Component, Inject, OnInit, ElementRef, ViewChild, AfterViewInit} from '
 
 import { DOCUMENT} from '@angular/common';
 import { TwoCardCalculator } from './TwoCardCalculator';
+import { ThreeCardCalculator } from './ThreeCardCalculator';
 
 @Component({
   selector: 'app-blackjack',
@@ -65,7 +66,11 @@ export class BlackjackPage implements OnInit, AfterViewInit {
         this.yc1.innerText,
         this.yc2.innerText);
       } else if (this.indexOfCards == 4) {
-        action = "ThreeCardCalculator";
+        action = ThreeCardCalculator.calculate(
+          this.dc1.innerText,
+          this.yc1.innerText,
+          this.yc2.innerText,
+          this.yc3.innerText);
       } else if (this.indexOfCards == 5) {
         action = "FourCardCalculator";
       } else if (this.indexOfCards == 6) {

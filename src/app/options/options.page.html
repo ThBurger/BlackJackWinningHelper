@@ -3,10 +3,36 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>options</ion-title>
+    <ion-title>Settings</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Strategies</ion-label>
+      <ion-select  [(ngModel)]="strategy" (ionChange)="onChangeStrategy($event)">
+        <ion-select-option value="1">Johnslots.com</ion-select-option>
+        <ion-select-option value="2">black-jackstrategy.net</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngIf="strategy == 1" no-padding no-margin no-lines>
+      Information: <a target="_blank" href="https://www.johnslots.com/en/blackjack/how-to-win-at-blackjack/"> Johnslots.com</a>
+    </ion-item>
+    <ion-item *ngIf="strategy == 2" no-padding no-margin no-lines>
+      Information: <a target="_blank" href="http://blackjack-strategy.net/?p=16"> Black-Jackstrategy.net</a>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Suits</ion-label>
+      <ion-select  [(ngModel)]="suits" (ionChange)="onChangeSuits($event)">
+        <ion-select-option value="hearts">Hearts</ion-select-option>
+        <ion-select-option value="diamonds">Diamonds</ion-select-option>
+        <ion-select-option value="clubs">Clubs</ion-select-option>
+        <ion-select-option value="spades">Spades</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
 
 </ion-content>
