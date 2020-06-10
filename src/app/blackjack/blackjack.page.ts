@@ -3,6 +3,7 @@ import { Component, Inject, OnInit, ElementRef, ViewChild, AfterViewInit} from '
 import { DOCUMENT} from '@angular/common';
 import { TwoCardCalculator } from './TwoCardCalculator';
 import { ThreeCardCalculator } from './ThreeCardCalculator';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-blackjack',
@@ -13,8 +14,17 @@ export class BlackjackPage implements OnInit, AfterViewInit {
 
   public disabled = true;
   indexOfCards: number = 0;
+  card1: string = '';
+  card2: string = '';
+  card3: string = '';
+  card4: string = '';
+  card5: string = '';
+  dealerCard: string = '';
+
+
   constructor(
-    @Inject(DOCUMENT) private doc: Document) { }
+    @Inject(DOCUMENT) private doc: Document,
+    public toastController: ToastController) { }
 
   ngOnInit() {
   }
@@ -23,24 +33,42 @@ export class BlackjackPage implements OnInit, AfterViewInit {
     
   }
 
-  clickCard(card: string){
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'pls click on the card - not on the button',
+      duration: 2000
+    });
+    toast.present();
+  }
+
+  clickCard(card: string, cardElement: any){
+    if(!cardElement.target.src) {
+      this.presentToast();
+      return;
+    }
     if (this.indexOfCards == 0) {
-      this.yc1.innerText = card;
+      this.card1 = card;
+      this.yc1img.src = cardElement.target.src;
       this.changeColors(this.yc1, this.yc2);
     } else if (this.indexOfCards == 1) {
-      this.yc2.innerText = card;
+      this.card2 = card;
+      this.yc2img.src = cardElement.target.src;
       this.changeColors(this.yc2, this.dc1);
     } else if (this.indexOfCards == 2) {
-      this.dc1.innerText = card;
+      this.dealerCard = card;
+      this.dc1img.src = cardElement.target.src;
       this.changeColors(this.dc1, this.yc3);
     } else if (this.indexOfCards == 3) {
-      this.yc3.innerText = card;
+      this.card3 = card;
+      this.yc3img.src = cardElement.target.src;
       this.changeColors(this.yc3, this.yc4);
     } else if (this.indexOfCards == 4) {
-      this.yc4.innerText = card;
+      this.card4 = card;
+      this.yc4img.src = cardElement.target.src;
       this.changeColors(this.yc4, this.yc5);
     } else if (this.indexOfCards == 5) {
-      this.yc5.innerText = card;
+      this.card5 = card;
+      this.yc5img.src = cardElement.target.src;
       this.yc5.classList.remove('ion-color-primary');
       this.yc5.classList.add('ion-color-warning');
     }
@@ -62,15 +90,15 @@ export class BlackjackPage implements OnInit, AfterViewInit {
     let action = "";
     if(this.indexOfCards == 3) {
       action = TwoCardCalculator.calculate(
-        this.dc1.innerText,
-        this.yc1.innerText,
-        this.yc2.innerText);
+        this.dealerCard,
+        this.card1,
+        this.card2);
       } else if (this.indexOfCards == 4) {
         action = ThreeCardCalculator.calculate(
-          this.dc1.innerText,
-          this.yc1.innerText,
-          this.yc2.innerText,
-          this.yc3.innerText);
+          this.dealerCard,
+          this.card1,
+          this.card2,
+          this.card3);
       } else if (this.indexOfCards == 5) {
         action = "FourCardCalculator";
       } else if (this.indexOfCards == 6) {
@@ -82,17 +110,23 @@ export class BlackjackPage implements OnInit, AfterViewInit {
   reset(){
     this.indexOfCards = 0;
     this.disabled = true;
-    this.resetText();
+    this.resetCards();
     this.resetColors();
   }
 
-  resetText() {
-    this.yc1.innerText = '';
-    this.yc2.innerText = '';
-    this.yc3.innerText = '';
-    this.yc4.innerText = '';
-    this.yc5.innerText = '';
-    this.dc1.innerText = '';
+  resetCards() {
+    this.dealerCard = '';
+    this.card1 = '';
+    this.card2 = '';
+    this.card3 = '';
+    this.card4 = '';
+    this.card5 = '';
+    this.yc1img.src = 'assets/img/cards/backside.png';
+    this.yc2img.src = 'assets/img/cards/backside.png';
+    this.yc3img.src = 'assets/img/cards/backside.png';
+    this.yc4img.src = 'assets/img/cards/backside.png';
+    this.yc5img.src = 'assets/img/cards/backside.png';
+    this.dc1img.src = 'assets/img/cards/backside.png';
   }
 
   resetColors() {
@@ -119,24 +153,48 @@ export class BlackjackPage implements OnInit, AfterViewInit {
     return this.doc.getElementById("yc1");
   }
 
+  get yc1img() : HTMLImageElement {
+    return <HTMLImageElement>this.doc.getElementById("yc1img");
+  }
+
   get yc2() : HTMLElement {
     return this.doc.getElementById("yc2");
+  }
+
+  get yc2img() : HTMLImageElement {
+    return <HTMLImageElement>this.doc.getElementById("yc2img");
   }
 
   get yc3() : HTMLElement {
     return this.doc.getElementById("yc3");
   }
 
+  get yc3img() : HTMLImageElement {
+    return <HTMLImageElement>this.doc.getElementById("yc3img");
+  }
+
   get yc4() : HTMLElement {
     return this.doc.getElementById("yc4");
+  }
+
+  get yc4img() : HTMLImageElement {
+    return <HTMLImageElement>this.doc.getElementById("yc4img");
   }
 
   get yc5() : HTMLElement {
     return this.doc.getElementById("yc5");
   }
 
+  get yc5img() : HTMLImageElement {
+    return <HTMLImageElement>this.doc.getElementById("yc5img");
+  }
+
   get dc1() : HTMLElement {
     return this.doc.getElementById("dc1");
+  }
+
+  get dc1img() : HTMLImageElement {
+    return <HTMLImageElement>this.doc.getElementById("dc1img");
   }
 
   
