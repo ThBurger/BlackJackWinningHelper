@@ -18,6 +18,8 @@ export class SupportPage implements OnInit {
 
   coffee() {
     console.log('coffee');
+    console.log('https://www.buymeacoffee.com/TzM2Vwa4L');
+    
   }
 
 }

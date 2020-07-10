@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
       icon: 'information-circle'
     },
     {
-      title: 'Options',
+      title: 'Settings',
       url: '/options',
       icon: 'settings'
     },
@@ -31,6 +31,11 @@ export class AppComponent implements OnInit {
       title: 'Support Me',
       url: '/support',
       icon: 'heart'
+    },
+    {
+      title: 'Rate this app',
+      url: '/ratethisapp',
+      icon: 'star'
     }
   ];
 
