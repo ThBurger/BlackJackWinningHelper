@@ -1,9 +1,12 @@
 import { Component, Inject, OnInit, ElementRef, ViewChild, AfterViewInit} from '@angular/core';
 
 import { DOCUMENT} from '@angular/common';
-import { TwoCardCalculator } from './TwoCardCalculator';
-import { ThreeCardCalculator } from './ThreeCardCalculator';
+import { TwoCardCalculator_Johnslots } from './TwoCardCalculator_Johnslots';
+import { TwoCardCalculator_Blackjackstrategy } from './TwoCardCalculator_Blackjackstrategy';
+import { MoreCardCalculator_Johnslots } from './MoreCardCalculator_Johnslots';
+import { MoreCardCalculator_Blackjackstrategy } from './MoreCardCalculator_Blackjackstrategy';
 import { ToastController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-blackjack',
@@ -20,13 +23,18 @@ export class BlackjackPage implements OnInit, AfterViewInit {
   card4: string = '';
   card5: string = '';
   dealerCard: string = '';
+  strategy: number = 0;
 
 
   constructor(
     @Inject(DOCUMENT) private doc: Document,
-    public toastController: ToastController) { }
+    public toastController: ToastController,
+    private storage: Storage) { }
 
   ngOnInit() {
+    this.storage.get('strategy').then(res => {
+      this.strategy = res;
+    });
   }
 
   ngAfterViewInit() {
@@ -89,21 +97,26 @@ export class BlackjackPage implements OnInit, AfterViewInit {
   calculate(){
     let action = "";
     if(this.indexOfCards == 3) {
-      action = TwoCardCalculator.calculate(
-        this.dealerCard,
-        this.card1,
-        this.card2);
-      } else if (this.indexOfCards == 4) {
-        action = ThreeCardCalculator.calculate(
-          this.dealerCard,
-          this.card1,
-          this.card2,
-          this.card3);
-      } else if (this.indexOfCards == 5) {
-        action = "FourCardCalculator";
-      } else if (this.indexOfCards == 6) {
-        action = "FiveCardCalculator";
+      if (this.strategy == 1) { //Johnslots
+        action = TwoCardCalculator_Johnslots
+        .calculate(this.dealerCard, this.card1, this.card2);
+      } else if (this.strategy == 2) { //BlackJackStrategy
+        action = TwoCardCalculator_Blackjackstrategy
+        .calculate(this.dealerCard, this.card1, this.card2);
+      } else { // no impl
+        action = 'no impl of strategy' + this.strategy
       }
+    } else if (this.indexOfCards >= 4) {
+      if (this.strategy == 1) { //Johnslots
+        action = MoreCardCalculator_Johnslots
+        .calculate(this.dealerCard, this.card1, this.card2, this.card3, this.card4, this.card5);
+      } else if (this.strategy == 2) { //BlackJackStrategy
+        action = MoreCardCalculator_Blackjackstrategy
+        .calculate(this.dealerCard, this.card1, this.card2, this.card3, this.card4, this.card5);
+      } else { // no impl
+        action = 'no impl of strategy' + this.strategy
+      }
+    }
     this.action.innerText = action;
   }
 
@@ -122,12 +135,12 @@ export class BlackjackPage implements OnInit, AfterViewInit {
     this.card3 = '';
     this.card4 = '';
     this.card5 = '';
-    this.yc1img.src = 'assets/img/cards/backside.png';
-    this.yc2img.src = 'assets/img/cards/backside.png';
-    this.yc3img.src = 'assets/img/cards/backside.png';
-    this.yc4img.src = 'assets/img/cards/backside.png';
-    this.yc5img.src = 'assets/img/cards/backside.png';
-    this.dc1img.src = 'assets/img/cards/backside.png';
+    this.yc1img.src = 'assets/img/cards/backside-blue.png';
+    this.yc2img.src = 'assets/img/cards/backside-blue.png';
+    this.yc3img.src = 'assets/img/cards/backside-blue.png';
+    this.yc4img.src = 'assets/img/cards/backside-blue.png';
+    this.yc5img.src = 'assets/img/cards/backside-blue.png';
+    this.dc1img.src = 'assets/img/cards/backside-blue.png';
   }
 
   resetColors() {

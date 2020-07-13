@@ -1,3 +1,5 @@
+import { isNumber } from 'util';
+
 export abstract class Helper {
 
     
@@ -14,7 +16,7 @@ export abstract class Helper {
         let retWert = 0;
         if (this.cardEquals10(card)) {
             retWert = 10;
-        } else {
+        } else if (card.match(/^[0-9]+$/) != null) {
             retWert = Number.parseInt(card);
         }
         return retWert;

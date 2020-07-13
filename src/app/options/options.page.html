@@ -12,20 +12,20 @@
 
     <ion-item-divider>
       <ion-label>
-        Strategy
+        General
       </ion-label>
     </ion-item-divider>
 
     <ion-item>
-      <ion-label> </ion-label>
-      <ion-select [(ngModel)]="strategy" (ionChange)="onChangeStrategy($event)" no-padding no-margin no-lines>
+      <ion-label> Strategy </ion-label>
+      <ion-select [(ngModel)]="strategy" (ionChange)="onChangeStrategy($event)">
         <ion-select-option value="1">Johnslots.com</ion-select-option>
         <ion-select-option value="2">black-jackstrategy.net</ion-select-option>
       </ion-select>
     </ion-item>
 
-    <ion-item no-padding no-margin no-lines>
-      Link to 
+    <ion-item>
+      Link to &nbsp;
       <a *ngIf="strategy == 1" target="_blank" href="https://www.johnslots.com/en/blackjack/how-to-win-at-blackjack/"> Johnslots.com</a>
       <a *ngIf="strategy == 2" target="_blank" href="http://blackjack-strategy.net/?p=16"> Black-Jack Strategy.net</a>
     </ion-item>
@@ -52,10 +52,10 @@
       </ion-label>
     </ion-item-divider>
 
-    <ion-item no-padding no-margin no-lines>
+    <ion-item>
       Terms & Conditions
     </ion-item>
-    <ion-item no-padding no-margin no-lines>
+    <ion-item>
       Privacy Policy
     </ion-item>
   </ion-list>
