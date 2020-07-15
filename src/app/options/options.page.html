@@ -46,6 +46,14 @@
       </ion-select>
     </ion-item>
 
+    <ion-item>
+      <ion-label>Backside of Cards</ion-label>
+      <ion-select  [(ngModel)]="backside" (ionChange)="onChangeBackside($event)">
+        <ion-select-option value="red">red</ion-select-option>
+        <ion-select-option value="blue">blue</ion-select-option>
+      </ion-select>
+    </ion-item>
+
     <ion-item-divider>
       <ion-label>
         Legal

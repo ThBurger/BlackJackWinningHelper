@@ -10,6 +10,7 @@ export class OptionsPage implements OnInit {
 
   suits: string = '';
   strategy: string = '';
+  backside: string = '';
 
   constructor(private storage: Storage) { }
 
@@ -19,6 +20,9 @@ export class OptionsPage implements OnInit {
     });
     this.storage.get('strategy').then(res => {
       this.strategy = res;
+    });
+    this.storage.get('backside').then(res => {
+      this.backside = res;
     });
   }
    
@@ -30,5 +34,8 @@ export class OptionsPage implements OnInit {
   }
   onChangeStrategy($event){
     this.storage.set('strategy', $event.target.value);
+  }
+  onChangeBackside($event){
+    this.storage.set('backside', $event.target.value);
   }
 }
