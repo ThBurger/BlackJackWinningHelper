@@ -11,7 +11,7 @@ export abstract class MoreCardCalculator_Johnslots {
         yc5: string): string {
 
         // start SUM
-        let card1, card2, card3, card4, card5, sum = 0;
+        let card1, card2, card3, card4, card5, sum, aces = 0;
         card1 = yc1 != 'A' ? Helper.calculateCard(yc1) : 1;
         card2 = yc2 != 'A' ? Helper.calculateCard(yc2) : 1;
         card3 = yc3 != 'A' ? Helper.calculateCard(yc3) : 1;
@@ -19,6 +19,17 @@ export abstract class MoreCardCalculator_Johnslots {
         card5 = yc5 != 'A' ? Helper.calculateCard(yc5) : 1;
         sum = card1 + card2 + card3 + card4 + card5;
         
+        aces = yc1 == 'A' ? aces += 1 : aces += 0;
+        aces = yc2 == 'A' ? aces += 1 : aces += 0;
+        aces = yc3 == 'A' ? aces += 1 : aces += 0;
+        aces = yc4 == 'A' ? aces += 1 : aces += 0;
+        aces = yc5 == 'A' ? aces += 1 : aces += 0;
+
+        let sumArray = [ sum ];
+        for (let i = 0; i < aces; i++) {
+            sumArray.push(sumArray[i]+10);
+        }
+        //TODO sum auf sumArray aendern
         if(sum == 17) {
             return Helper.S;
         }
