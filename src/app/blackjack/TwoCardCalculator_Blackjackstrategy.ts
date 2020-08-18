@@ -98,7 +98,7 @@ export abstract class TwoCardCalculator_Blackjackstrategy {
         if (yc1 == "A" && yc2 == "2") {
             return Helper.H;
         }
-        // start SUM
+        
         let card1, card2, sum = 0;
         card1 = Helper.calculateCard(yc1);
         card2 = Helper.calculateCard(yc2);

@@ -12,11 +12,11 @@ export abstract class MoreCardCalculator_Johnslots {
 
         // start SUM
         let card1, card2, card3, card4, card5, sum, aces = 0;
-        card1 = yc1 != 'A' ? Helper.calculateCard(yc1) : 1;
-        card2 = yc2 != 'A' ? Helper.calculateCard(yc2) : 1;
-        card3 = yc3 != 'A' ? Helper.calculateCard(yc3) : 1;
-        card4 = yc4 != 'A' ? Helper.calculateCard(yc4) : 1;
-        card5 = yc5 != 'A' ? Helper.calculateCard(yc5) : 1;
+        card1 = Helper.calculateCard(yc1);
+        card2 = Helper.calculateCard(yc2);
+        card3 = Helper.calculateCard(yc3);
+        card4 = Helper.calculateCard(yc4);
+        card5 = Helper.calculateCard(yc5);
         sum = card1 + card2 + card3 + card4 + card5;
         
         aces = yc1 == 'A' ? aces += 1 : aces += 0;
@@ -29,11 +29,22 @@ export abstract class MoreCardCalculator_Johnslots {
         for (let i = 0; i < aces; i++) {
             sumArray.push(sumArray[i]+10);
         }
-        //TODO sum auf sumArray aendern
-        if(sum == 17) {
+        var filteredSumArray = Helper.filterSumArray(sumArray);
+
+        if (filteredSumArray.length == 0) {
+            return Helper.SORRY;
+        }
+        if(filteredSumArray.includes(21)) {
+           return Helper.B;
+        }
+
+        if(filteredSumArray.includes(20)
+           || filteredSumArray.includes(19)
+           || filteredSumArray.includes(18)
+           || filteredSumArray.includes(17)) {
             return Helper.S;
         }
-        if (sum == 16) {
+        if (filteredSumArray.includes(16)) {
             if (dc == "9" || Helper.cardEquals10(dc) || dc == "A") {
                 return Helper.HR;
             }
@@ -43,7 +54,7 @@ export abstract class MoreCardCalculator_Johnslots {
             
             return Helper.H;
         }
-        if (sum == 15) {
+        if (filteredSumArray.includes(15)) {
             if (Helper.cardEquals10(dc)) {
                 return Helper.HR;
             }
@@ -52,43 +63,43 @@ export abstract class MoreCardCalculator_Johnslots {
             }
             return Helper.H;
         }
-        if (sum == 14) {
+        if (filteredSumArray.includes(14)) {
             if (dc == "2" || dc == "3" || dc == "4" || dc == "5" || dc == "6") {
                 return Helper.S;
             }
             return Helper.H;
         }
-        if (sum == 13) {
+        if (filteredSumArray.includes(13)) {
             if (dc == "2" || dc == "3" || dc == "4" || dc == "5" || dc == "6") {
                 return Helper.S;
             }
             return Helper.H;
         }
-        if (sum == 12) {
+        if (filteredSumArray.includes(12)) {
             if (dc == "4" || dc == "5" || dc == "6") {
                 return Helper.S;
             }
             return Helper.H;
         }
-        if (sum == 11) {
+        if (filteredSumArray.includes(11)) {
             if (dc == "A") {
                 return Helper.H;
             }
             return Helper.DD;
         }
-        if (sum == 10) {
+        if (filteredSumArray.includes(10)) {
             if (Helper.cardEquals10(dc) || dc == "A") {
                 return Helper.H;
             }
             return Helper.DD;
         }
-        if (sum == 9) {
+        if (filteredSumArray.includes(9)) {
             if (dc == "3" || dc == "4" || dc == "5" || dc == "6") {
                 return Helper.DD;
             }
             return Helper.H;
         }
-        if (sum == 8) {
+        if (filteredSumArray.includes(8)) {
             return Helper.H;
         }
         return Helper.H;

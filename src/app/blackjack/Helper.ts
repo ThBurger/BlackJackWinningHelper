@@ -14,7 +14,9 @@ export abstract class Helper {
 
     public static calculateCard(card: string): number {
         let retWert = 0;
-        if (this.cardEquals10(card)) {
+        if (card == 'A') {
+            retWert = 1;
+        } else if (this.cardEquals10(card)) {
             retWert = 10;
         } else if (card.match(/^[0-9]+$/) != null) {
             retWert = Number.parseInt(card);
@@ -22,10 +24,14 @@ export abstract class Helper {
         return retWert;
     }
 
-    public static cardEquals10(card: string) {
+    public static cardEquals10(card: string): boolean {
         if (card == "10" || card == "J" || card == "Q" || card == "K") {
             return true;
         }
         return false;
+    }
+
+    public static filterSumArray(array: number[]) : number[] {
+        return array.filter(function(value, index, arr){ return value <= 21;});
     }
 }
