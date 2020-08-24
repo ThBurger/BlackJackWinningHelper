@@ -18,7 +18,7 @@ export abstract class MoreCardCalculator_Blackjackstrategy {
         card4 = Helper.calculateCard(yc4);
         card5 = Helper.calculateCard(yc5);
         sum = card1 + card2 + card3 + card4 + card5;
-        
+
         aces = yc1 == 'A' ? aces += 1 : aces += 0;
         aces = yc2 == 'A' ? aces += 1 : aces += 0;
         aces = yc3 == 'A' ? aces += 1 : aces += 0;
@@ -31,8 +31,6 @@ export abstract class MoreCardCalculator_Blackjackstrategy {
         }
         var filteredSumArray = Helper.filterSumArray(sumArray);
 
-        console.log('hier')
-        console.log(filteredSumArray)
         if (filteredSumArray.length == 0) {
             return Helper.SORRY;
         }

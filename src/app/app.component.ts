@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
       icon: 'settings'
     },
     {
-      title: 'Support Me',
+      title: 'Support',
       url: '/support',
       icon: 'heart'
     },
