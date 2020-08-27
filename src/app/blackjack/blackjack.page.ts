@@ -7,6 +7,7 @@ import { MoreCardCalculator_Johnslots } from './MoreCardCalculator_Johnslots';
 import { MoreCardCalculator_Blackjackstrategy } from './MoreCardCalculator_Blackjackstrategy';
 import { ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
+import { Helper } from './Helper';
 
 @Component({
   selector: 'app-blackjack',
@@ -24,7 +25,6 @@ export class BlackjackPage implements OnInit, AfterViewInit {
   card5: string = '';
   dealerCard: string = '';
   strategy: number = 0;
-
 
   constructor(
     @Inject(DOCUMENT) private doc: Document,
@@ -117,6 +117,15 @@ export class BlackjackPage implements OnInit, AfterViewInit {
         action = 'no impl of strategy' + this.strategy
       }
     }
+
+    if(action == Helper.H) {
+      this.ysimg.src = 'assets/img/hit_card.png';
+    } else if (action == Helper.S) {
+      this.ysimg.src = 'assets/img/old-2.png';
+    }
+    //TODO weitermachen mit actions
+
+
     this.action.innerText = action;
   }
 
@@ -141,6 +150,7 @@ export class BlackjackPage implements OnInit, AfterViewInit {
     this.yc4img.src = 'assets/img/cards/backside-blue.png';
     this.yc5img.src = 'assets/img/cards/backside-blue.png';
     this.dc1img.src = 'assets/img/cards/backside-blue.png';
+    this.ysimg.src = 'assets/img/placeholder.png';
   }
 
   resetColors() {
@@ -214,6 +224,14 @@ export class BlackjackPage implements OnInit, AfterViewInit {
   
   get action() : HTMLElement {
     return this.doc.getElementById("action");
+  }
+
+  get ys() : HTMLElement {
+    return this.doc.getElementById("ys");
+  }
+  
+  get ysimg() : HTMLImageElement {
+    return <HTMLImageElement>this.doc.getElementById("ysimg");
   }
 
 }
