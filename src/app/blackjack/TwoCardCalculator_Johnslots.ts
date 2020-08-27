@@ -129,7 +129,7 @@ export abstract class TwoCardCalculator_Johnslots {
         card2 = Helper.calculateCard(yc2);
         sum = card1 + card2;
 
-        if(sum == 17) {
+        if( sum >= 17) {
             return Helper.S;
         }
         if (sum == 16) {

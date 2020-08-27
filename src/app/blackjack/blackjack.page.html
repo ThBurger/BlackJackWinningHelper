@@ -9,15 +9,46 @@
 
 <ion-content [fullscreen]="true">
 
-  <div class="separator">Your Cards</div>
-  <ion-button disabled color="success" id="yc1" size="large"><img id="yc1img" src="assets/img/cards/backside-blue.png"></ion-button>
-  <ion-button disabled color="primary" id="yc2" size="large"><img id="yc2img" src="assets/img/cards/backside-blue.png"></ion-button>
-  <ion-button disabled color="primary" id="yc3" size="large"><img id="yc3img" src="assets/img/cards/backside-blue.png"></ion-button>
-  <ion-button disabled color="primary" id="yc4" size="large"><img id="yc4img" src="assets/img/cards/backside-blue.png"></ion-button>
-  <ion-button disabled color="primary" id="yc5" size="large"><img id="yc5img" src="assets/img/cards/backside-blue.png"></ion-button>
-  
-  <div class="separator">Dealer Card</div>
-  <ion-button disabled color="primary" id="dc1" size="large"><img id="dc1img" src="assets/img/cards/backside-blue.png"></ion-button>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        Your Cards:
+      </ion-col>
+      <ion-col>
+        <ion-button disabled color="success" id="yc1" size="large"><img id="yc1img" src="assets/img/cards/backside-blue.png"></ion-button>
+        <ion-button disabled color="primary" id="yc2" size="large"><img id="yc2img" src="assets/img/cards/backside-blue.png"></ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        Dealer Card:
+      </ion-col>
+      <ion-col>
+        <ion-button disabled color="primary" id="dc1" size="large"><img id="dc1img" src="assets/img/cards/backside-blue.png"></ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        Your next Cards (if needed):
+      </ion-col>
+      <ion-col>
+        <ion-button disabled color="primary" id="yc3" size="large"><img id="yc3img" src="assets/img/cards/backside-blue.png"></ion-button>
+        <ion-button disabled color="primary" id="yc4" size="large"><img id="yc4img" src="assets/img/cards/backside-blue.png"></ion-button>
+        <ion-button disabled color="primary" id="yc5" size="large"><img id="yc5img" src="assets/img/cards/backside-blue.png"></ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        You should:
+      </ion-col>
+      <ion-col>
+        <ion-label id="action"></ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   
   <div class="separator">Cards</div>
   <ion-button fill="clear" (click)="clickCard('A', $event)" size="large"><img src="assets/img/cards/ace_of_spades.png"></ion-button>
@@ -33,12 +64,6 @@
   <ion-button fill="clear" (click)="clickCard('4', $event)" size="large"><img src="assets/img/cards/4_of_spades.png"></ion-button>
   <ion-button fill="clear" (click)="clickCard('3', $event)" size="large"><img src="assets/img/cards/3_of_spades.png"></ion-button>
   <ion-button fill="clear" (click)="clickCard('2', $event)" size="large"><img src="assets/img/cards/2_of_spades.png"></ion-button>
-
-  <div class="separator">You should:</div>
-  <!-- Item Labels -->
-  <ion-item>
-    <ion-label id="action"></ion-label>
-  </ion-item>
 
 </ion-content>
 
