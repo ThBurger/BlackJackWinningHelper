@@ -5,7 +5,7 @@ export abstract class Helper {
     
     public static S = "Stand";
     public static H = "Hit";
-    public static B = "BlackJack Congrats";
+    public static B = "BlackJack!";
     public static P = "Split";
     public static DD = "Double Down";
     public static HP = "Split if allowed to double afterwards, otherwise HIT";

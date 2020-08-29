@@ -119,12 +119,22 @@ export class BlackjackPage implements OnInit, AfterViewInit {
     }
 
     if(action == Helper.H) {
-      this.ysimg.src = 'assets/img/hit_card.png';
+      this.ysimg.src = 'assets/img/hit.png';
     } else if (action == Helper.S) {
-      this.ysimg.src = 'assets/img/old-2.png';
+      this.ysimg.src = 'assets/img/stand.png';
+    } else if (action == Helper.B) {
+      this.ysimg.src = 'assets/img/blackjack.png';
+    } else if (action == Helper.P) {
+      this.ysimg.src = 'assets/img/split.png';
+    } else if (action == Helper.DD) {
+      this.ysimg.src = 'assets/img/doubledown.png';
+    } else if (action == Helper.HP) {
+      this.ysimg.src = 'assets/img/splitanddouble.png';
+    } else if (action == Helper.HR) {
+      this.ysimg.src = 'assets/img/surrender.png';
+    } else if (action == Helper.SORRY) {
+      this.ysimg.src = 'assets/img/sorry.png';
     }
-    //TODO weitermachen mit actions
-
 
     this.action.innerText = action;
   }
