@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Storage } from '@ionic/storage';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -42,7 +44,9 @@ export class AppComponent implements OnInit {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private storage: Storage,
+    public router: Router
   ) {
     this.initializeApp();
   }
@@ -51,6 +55,31 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+    });
+
+    this.storage.get('suits').then(res => {
+      if(res == null) {
+        this.storage.set('suits', 'hearts');
+      }
+    });
+    this.storage.get('strategy').then(res => {
+      if(res == null) {
+        this.storage.set('strategy', '1');
+      }
+    });
+    this.storage.get('backside').then(res => {
+      if(res == null) {
+        this.storage.set('backside', 'red');
+      }
+    });
+    this.storage.get('ion_did_tutorial').then(res => {
+      if(res) {
+        this.router
+        .navigateByUrl('/blackjack', { replaceUrl: true });
+      } else {
+        this.router
+        .navigateByUrl('/tutorial', { replaceUrl: true });
+      }
     });
   }
 

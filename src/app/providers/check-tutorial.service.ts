@@ -11,7 +11,6 @@ export class CheckTutorial implements CanLoad {
     return this.storage.get('ion_did_tutorial').then(res => {
       if (res) {
         this.router.navigate(['/blackjack']);
-        console.log(res);
         return false;
       } else {
         return true;

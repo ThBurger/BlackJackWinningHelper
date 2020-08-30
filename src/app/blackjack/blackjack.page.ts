@@ -144,7 +144,7 @@ export class BlackjackPage implements OnInit, AfterViewInit {
     this.disabled = true;
     this.resetCards();
     this.resetColors();
-    this.action.innerText = '';
+    this.action.innerText = '-';
   }
 
   resetCards() {

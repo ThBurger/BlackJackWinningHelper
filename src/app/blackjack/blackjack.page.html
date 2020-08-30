@@ -8,8 +8,6 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" >
-<!-- <ion-content [fullscreen]="true" class="background">-->
-
   <ion-grid>
     <ion-row>
       <ion-col>
@@ -32,7 +30,7 @@
         Action:
       </ion-col>
       <ion-col size="4">
-        <ion-label id="action"></ion-label>
+        <ion-label id="action">-</ion-label>
         <ion-button fill="clear" id="ys" size="large"><img id="ysimg" src="assets/img/placeholder.png"></ion-button>
       </ion-col>
     </ion-row>
@@ -68,7 +66,6 @@
 </ion-content>
 
 <div class="footer"> 
-  <div class="separator">Actions</div>
   <ion-button expand="block" [disabled]="disabled" (click)="calculate()">Calculate</ion-button>
   <ion-button expand="block" (click)="reset()" color="danger">Reset</ion-button>
 </div>
