@@ -5,10 +5,17 @@
   "npmClient": "npm",
   "webDir": "www",
   "plugins": {
-    "SplashScreen": {
+    "SplashScreen": {"launchShowDuration": 3000,
+      "launchAutoHide": true,
+      "backgroundColor": "#ffffffff",
+      "androidSplashResourceName": "splash",
+      "androidScaleType": "CENTER_CROP",
+      "androidSpinnerStyle": "large",
+      "iosSpinnerStyle": "small",
+      "spinnerColor": "#999999",
       "showSpinner": true,
-      "launchAutoHide": false,
-      "launchShowDuration": 0
+      "splashFullScreen": true,
+      "splashImmersive": true
     }
   },
   "cordova": {}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { SplashScreen } from '@capacitor/core';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
@@ -43,7 +43,6 @@ export class AppComponent implements OnInit {
 
   constructor(
     private platform: Platform,
-    private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private storage: Storage,
     public router: Router
@@ -54,7 +53,10 @@ export class AppComponent implements OnInit {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      setTimeout(() => {
+        SplashScreen.hide();
+      }, 3000);
+
     });
 
     this.storage.get('suits').then(res => {
@@ -69,7 +71,12 @@ export class AppComponent implements OnInit {
     });
     this.storage.get('backside').then(res => {
       if(res == null) {
-        this.storage.set('backside', 'red');
+        this.storage.set('backside', 'blue');
+      }
+    });
+    this.storage.get('darkmode').then(res => {
+      if(res == null) {
+        this.storage.set('darkmode', false);
       }
     });
     this.storage.get('ion_did_tutorial').then(res => {

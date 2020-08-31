@@ -24,7 +24,12 @@ export class BlackjackPage implements OnInit, AfterViewInit {
   card4: string = '';
   card5: string = '';
   dealerCard: string = '';
+
+  //properties
   strategy: number = 0;
+  backside: string = '';
+  suits: string = '';
+  showToast: number = 0;
 
   constructor(
     @Inject(DOCUMENT) private doc: Document,
@@ -32,6 +37,12 @@ export class BlackjackPage implements OnInit, AfterViewInit {
     private storage: Storage) { }
 
   ngOnInit() {
+    this.storage.get('backside').then(res => {
+      this.backside = res;
+    });
+    this.storage.get('suits').then(res => {
+      this.suits = res;
+    });
     this.storage.get('strategy').then(res => {
       this.strategy = res;
     });
@@ -43,40 +54,42 @@ export class BlackjackPage implements OnInit, AfterViewInit {
 
   async presentToast() {
     const toast = await this.toastController.create({
-      message: 'pls click on the card - not on the button',
+      message: 'If you are winning - please support me on the support page',
       duration: 2000
     });
     toast.present();
   }
 
   clickCard(card: string, cardElement: any){
-    if(!cardElement.target.src) {
-      this.presentToast();
-      return;
+    let src = "";
+    if(cardElement.target.src) {
+      src = cardElement.target.src;
+    } else {
+      src = cardElement.srcElement.children[0].src;
     }
     if (this.indexOfCards == 0) {
       this.card1 = card;
-      this.yc1img.src = cardElement.target.src;
+      this.yc1img.src = src;
       this.changeColors(this.yc1, this.yc2);
     } else if (this.indexOfCards == 1) {
       this.card2 = card;
-      this.yc2img.src = cardElement.target.src;
+      this.yc2img.src = src;
       this.changeColors(this.yc2, this.dc1);
     } else if (this.indexOfCards == 2) {
       this.dealerCard = card;
-      this.dc1img.src = cardElement.target.src;
+      this.dc1img.src = src;
       this.changeColors(this.dc1, this.yc3);
     } else if (this.indexOfCards == 3) {
       this.card3 = card;
-      this.yc3img.src = cardElement.target.src;
+      this.yc3img.src = src;
       this.changeColors(this.yc3, this.yc4);
     } else if (this.indexOfCards == 4) {
       this.card4 = card;
-      this.yc4img.src = cardElement.target.src;
+      this.yc4img.src = src;
       this.changeColors(this.yc4, this.yc5);
     } else if (this.indexOfCards == 5) {
       this.card5 = card;
-      this.yc5img.src = cardElement.target.src;
+      this.yc5img.src = src;
       this.yc5.classList.remove('ion-color-primary');
       this.yc5.classList.add('ion-color-warning');
     }
@@ -137,6 +150,11 @@ export class BlackjackPage implements OnInit, AfterViewInit {
     }
 
     this.action.innerText = action;
+
+    this.showToast += 1;
+    if (this.showToast % 5 == 0) {
+      this.presentToast();
+    }
   }
 
   reset(){
@@ -154,12 +172,12 @@ export class BlackjackPage implements OnInit, AfterViewInit {
     this.card3 = '';
     this.card4 = '';
     this.card5 = '';
-    this.yc1img.src = 'assets/img/cards/backside-blue.png';
-    this.yc2img.src = 'assets/img/cards/backside-blue.png';
-    this.yc3img.src = 'assets/img/cards/backside-blue.png';
-    this.yc4img.src = 'assets/img/cards/backside-blue.png';
-    this.yc5img.src = 'assets/img/cards/backside-blue.png';
-    this.dc1img.src = 'assets/img/cards/backside-blue.png';
+    this.yc1img.src = 'assets/img/cards/backside-' + this.backside +'.png';
+    this.yc2img.src = 'assets/img/cards/backside-' + this.backside +'.png';
+    this.yc3img.src = 'assets/img/cards/backside-' + this.backside +'.png';
+    this.yc4img.src = 'assets/img/cards/backside-' + this.backside +'.png';
+    this.yc5img.src = 'assets/img/cards/backside-' + this.backside +'.png';
+    this.dc1img.src = 'assets/img/cards/backside-' + this.backside +'.png';
     this.ysimg.src = 'assets/img/placeholder.png';
   }
 

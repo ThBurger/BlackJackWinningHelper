@@ -11,6 +11,7 @@ export class OptionsPage implements OnInit {
   suits: string = '';
   strategy: string = '';
   backside: string = '';
+  darkmode: boolean = false;
 
   constructor(private storage: Storage) { }
 
@@ -23,6 +24,9 @@ export class OptionsPage implements OnInit {
     });
     this.storage.get('backside').then(res => {
       this.backside = res;
+    });
+    this.storage.get('darkmode').then(res => {
+      this.darkmode = res;
     });
   }
    
@@ -37,5 +41,8 @@ export class OptionsPage implements OnInit {
   }
   onChangeBackside($event){
     this.storage.set('backside', $event.target.value);
+  }
+  onChangeDarkMode($event){
+    this.storage.set('darkmode', this.darkmode);
   }
 }

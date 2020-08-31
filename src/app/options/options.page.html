@@ -25,6 +25,7 @@
     </ion-item>
 
     <ion-item>
+      <ion-icon slot="start" name="link-outline"></ion-icon>
       Link to &nbsp;
       <a *ngIf="strategy == 1" target="_blank" href="https://www.johnslots.com/en/blackjack/how-to-win-at-blackjack/"> Johnslots.com</a>
       <a *ngIf="strategy == 2" target="_blank" href="http://blackjack-strategy.net/?p=16"> Black-Jack Strategy.net</a>
@@ -49,9 +50,17 @@
     <ion-item>
       <ion-label>Backside of Cards</ion-label>
       <ion-select  [(ngModel)]="backside" (ionChange)="onChangeBackside($event)">
-        <ion-select-option value="red">red</ion-select-option>
-        <ion-select-option value="blue">blue</ion-select-option>
+        <ion-select-option value="red">Red</ion-select-option>
+        <ion-select-option value="blue">Blue</ion-select-option>
       </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon slot="start" name="moon-outline"></ion-icon>
+      <ion-label>
+        Dark Mode
+      </ion-label>
+      <ion-toggle [(ngModel)]="darkmode" (ionChange)="onChangeDarkMode($event)"></ion-toggle>
     </ion-item>
 
     <ion-item-divider>
