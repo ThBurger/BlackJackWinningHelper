@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, ElementRef, ViewChild, AfterViewInit} from '@angular/core';
+import { Component, Inject, OnInit} from '@angular/core';
 
 import { DOCUMENT} from '@angular/common';
 import { TwoCardCalculator_Johnslots } from './TwoCardCalculator_Johnslots';
@@ -8,13 +8,14 @@ import { MoreCardCalculator_Blackjackstrategy } from './MoreCardCalculator_Black
 import { ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Helper } from './Helper';
+import { LoaderService } from '../services/loader.service';
 
 @Component({
   selector: 'app-blackjack',
   templateUrl: './blackjack.page.html',
   styleUrls: ['./blackjack.page.scss'],
 })
-export class BlackjackPage implements OnInit, AfterViewInit {
+export class BlackjackPage implements OnInit {
 
   public disabled = true;
   indexOfCards: number = 0;
@@ -27,16 +28,20 @@ export class BlackjackPage implements OnInit, AfterViewInit {
 
   //properties
   strategy: number = 0;
-  backside: string = '';
-  suits: string = '';
+  backside: string = 'blue';
+  suits: string = 'hearts';
   showToast: number = 0;
+  loader: boolean = true;
 
   constructor(
     @Inject(DOCUMENT) private doc: Document,
     public toastController: ToastController,
-    private storage: Storage) { }
+    private storage: Storage,
+    private ionLoader: LoaderService) {
+    }
 
   ngOnInit() {
+    this.showLoader();
     this.storage.get('backside').then(res => {
       this.backside = res;
     });
@@ -48,8 +53,12 @@ export class BlackjackPage implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit() {
-    
+  showLoader() {
+    this.ionLoader.showLoader();
+    setTimeout(() => {
+      this.ionLoader.hideLoader();
+      this.loader = false;
+    }, 1500);
   }
 
   async presentToast() {

@@ -5,7 +5,8 @@
   "npmClient": "npm",
   "webDir": "www",
   "plugins": {
-    "SplashScreen": {"launchShowDuration": 3000,
+    "SplashScreen": {
+      "launchShowDuration": 1500,
       "launchAutoHide": true,
       "backgroundColor": "#ffffffff",
       "androidSplashResourceName": "splash",

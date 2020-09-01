@@ -40,6 +40,7 @@ export class AppComponent implements OnInit {
       icon: 'star'
     }
   ];
+  darkmode = false;
 
   constructor(
     private platform: Platform,
@@ -58,7 +59,13 @@ export class AppComponent implements OnInit {
       }, 3000);
 
     });
-
+    this.storage.get('darkmode').then(res => {
+      if(res == null) {
+        res = false;
+        this.storage.set('darkmode', res);
+      }
+      this.darkmode = res;
+    });
     this.storage.get('suits').then(res => {
       if(res == null) {
         this.storage.set('suits', 'hearts');
@@ -72,11 +79,6 @@ export class AppComponent implements OnInit {
     this.storage.get('backside').then(res => {
       if(res == null) {
         this.storage.set('backside', 'blue');
-      }
-    });
-    this.storage.get('darkmode').then(res => {
-      if(res == null) {
-        this.storage.set('darkmode', false);
       }
     });
     this.storage.get('ion_did_tutorial').then(res => {

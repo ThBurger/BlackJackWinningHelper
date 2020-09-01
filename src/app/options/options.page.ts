@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-options',
@@ -12,8 +13,10 @@ export class OptionsPage implements OnInit {
   strategy: string = '';
   backside: string = '';
   darkmode: boolean = false;
+  darkmodeInit: boolean = false;
 
-  constructor(private storage: Storage) { }
+  constructor(private storage: Storage,
+    public toastController: ToastController) { }
 
   ionViewWillEnter() {
     this.storage.get('suits').then(res => {
@@ -27,6 +30,7 @@ export class OptionsPage implements OnInit {
     });
     this.storage.get('darkmode').then(res => {
       this.darkmode = res;
+      this.darkmodeInit = res;
     });
   }
    
@@ -44,5 +48,19 @@ export class OptionsPage implements OnInit {
   }
   onChangeDarkMode($event){
     this.storage.set('darkmode', this.darkmode);
+    this.presentToast();
+  }
+
+  async presentToast() {
+    if (this.darkmodeInit == this.darkmode) {
+      // doNothing
+    } else {
+      let message = this.darkmode ? 'DarkMode will be activated after relaunch of this app.' : 'DarkMode will be deactivated after relaunch of this app.';
+      const toast = await this.toastController.create({
+        message: message,
+        duration: 2000
+      });
+      toast.present();
+    }
   }
 }

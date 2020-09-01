@@ -7,7 +7,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" >
+<div *ngIf="loader"></div>
+
+<ion-content *ngIf="!loader" [fullscreen]="true" >
   <ion-grid>
     <ion-row>
       <ion-col>

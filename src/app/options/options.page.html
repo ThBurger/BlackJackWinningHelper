@@ -17,7 +17,8 @@
     </ion-item-divider>
 
     <ion-item>
-      <ion-label> Strategy </ion-label>
+      <ion-icon slot="start" name="analytics-outline"></ion-icon>
+      <ion-label>Strategy</ion-label>
       <ion-select [(ngModel)]="strategy" (ionChange)="onChangeStrategy($event)">
         <ion-select-option value="1">Johnslots.com</ion-select-option>
         <ion-select-option value="2">black-jackstrategy.net</ion-select-option>
@@ -38,6 +39,7 @@
     </ion-item-divider>
 
     <ion-item>
+      <ion-icon slot="start" name="shapes-outline"></ion-icon>
       <ion-label>Suits</ion-label>
       <ion-select  [(ngModel)]="suits" (ionChange)="onChangeSuits($event)">
         <ion-select-option value="hearts">Hearts</ion-select-option>
@@ -48,6 +50,7 @@
     </ion-item>
 
     <ion-item>
+      <ion-icon slot="start" name="tablet-portrait-outline"></ion-icon>
       <ion-label>Backside of Cards</ion-label>
       <ion-select  [(ngModel)]="backside" (ionChange)="onChangeBackside($event)">
         <ion-select-option value="red">Red</ion-select-option>
