@@ -30,7 +30,6 @@ export class BlackjackPage implements OnInit {
   strategy: number = 0;
   backside: string = 'blue';
   suits: string = 'hearts';
-  showToast: number = 0;
   loader: boolean = true;
 
   constructor(
@@ -58,15 +57,7 @@ export class BlackjackPage implements OnInit {
     setTimeout(() => {
       this.ionLoader.hideLoader();
       this.loader = false;
-    }, 1500);
-  }
-
-  async presentToast() {
-    const toast = await this.toastController.create({
-      message: 'If you are winning - please support me on the support page',
-      duration: 2000
-    });
-    toast.present();
+    }, 750);
   }
 
   clickCard(card: string, cardElement: any){
@@ -157,13 +148,7 @@ export class BlackjackPage implements OnInit {
     } else if (action == Helper.SORRY) {
       this.ysimg.src = 'assets/img/sorry.png';
     }
-
     this.action.innerText = action;
-
-    this.showToast += 1;
-    if (this.showToast % 5 == 0) {
-      this.presentToast();
-    }
   }
 
   reset(){

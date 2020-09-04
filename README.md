@@ -1,3 +1,4 @@
+
 # BlackJackWinningHelper
 
 ionic start BlackJackWinningHelper sidemenu --type=angular --capacitor
@@ -34,3 +35,15 @@ for splash screen repair copy following into app/res/values/styles.xml:
 
 apk in:
 android/app/build/outputs/apk/debug/app-debug.apk
+
+# generate ic_launcher:
+```
+npx cap open android
+```
+rightclick on 'app' Folder -> New -> Image Assets -> icon auswählen -> next -> finish
+all ic_launcher will be replaced
+
+# generate splash.png
+https://pgicons.abiro.com/
+upload icon.png and click also for landscape
+and replace all files

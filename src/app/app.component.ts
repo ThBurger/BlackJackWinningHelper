@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@capacitor/core';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
@@ -54,10 +53,6 @@ export class AppComponent implements OnInit {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-      setTimeout(() => {
-        SplashScreen.hide();
-      }, 3000);
-
     });
     this.storage.get('darkmode').then(res => {
       if(res == null) {
