@@ -3,11 +3,11 @@ npm install -g cordova-res
 npm install -g native-run
 
 
-ionic start BlackJackWinningHelper sidemenu --type=angular --capacitor
+ionic start BlackjackWinHelper sidemenu --type=angular --capacitor
 
 Your Ionic app is ready! Follow these next steps:
 
-- Go to your new project: cd .\BlackJackWinningHelper
+- Go to your new project: cd .\BlackjackWinHelper
 - Run ionic serve within the app directory to see your app in the browser
 - Run ionic capacitor add to add a native iOS or Android project using Capacitor
 - Generate your app icon and splash screens using cordova-res --skip-config --copy
@@ -16,4 +16,4 @@ Your Ionic app is ready! Follow these next steps:
 
 
 
-PS C:\Users\Tburger\VisualStudioProjects\BlackJackWinningHelper\src\app> ionic g page support
+PS C:\Users\Tburger\VisualStudioProjects\BlackjackWinHelper\src\app> ionic g page support

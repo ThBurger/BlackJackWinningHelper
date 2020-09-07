@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public appPages = [
     {
-      title: 'Black Jack',
+      title: 'Blackjack',
       url: '/blackjack',
       icon: 'game-controller'
     },
@@ -69,6 +69,11 @@ export class AppComponent implements OnInit {
     this.storage.get('strategy').then(res => {
       if(res == null) {
         this.storage.set('strategy', '1');
+      }
+    });
+    this.storage.get('autocalc').then(res => {
+      if(res == null) {
+        this.storage.set('autocalc', false);
       }
     });
     this.storage.get('backside').then(res => {

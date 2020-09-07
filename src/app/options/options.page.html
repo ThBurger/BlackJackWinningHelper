@@ -66,6 +66,14 @@
       <ion-toggle [(ngModel)]="darkmode" (ionChange)="onChangeDarkMode($event)"></ion-toggle>
     </ion-item>
 
+    <ion-item>
+      <ion-icon slot="start" name="reload-outline"></ion-icon>
+      <ion-label>
+        Auto Calculation
+      </ion-label>
+      <ion-toggle [(ngModel)]="autocalc" (ionChange)="onChangeAutoCalc($event)"></ion-toggle>
+    </ion-item>
+
     <ion-item-divider>
       <ion-label>
         Legal

@@ -1,6 +1,6 @@
 {
-  "appId": "at.thburger.blackjack.winninghelper",
-  "appName": "BlackJackWinningHelper",
+  "appId": "at.thburger.blackjack.winhelper",
+  "appName": "Blackjack Win Helper",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",

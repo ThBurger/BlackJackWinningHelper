@@ -14,6 +14,7 @@ export class OptionsPage implements OnInit {
   backside: string = '';
   darkmode: boolean = false;
   darkmodeInit: boolean = false;
+  autocalc: boolean = false;
 
   constructor(private storage: Storage,
     public toastController: ToastController) { }
@@ -27,6 +28,9 @@ export class OptionsPage implements OnInit {
     });
     this.storage.get('backside').then(res => {
       this.backside = res;
+    });
+    this.storage.get('autocalc').then(res => {
+      this.autocalc = res;
     });
     this.storage.get('darkmode').then(res => {
       this.darkmode = res;
@@ -49,6 +53,9 @@ export class OptionsPage implements OnInit {
   onChangeDarkMode($event){
     this.storage.set('darkmode', this.darkmode);
     this.presentToast();
+  }
+  onChangeAutoCalc($event){
+    this.storage.set('autocalc', this.autocalc);
   }
 
   async presentToast() {

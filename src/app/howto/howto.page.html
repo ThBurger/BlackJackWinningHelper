@@ -9,49 +9,27 @@
 
 <ion-content>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-button expand="block" (click)="startTuturial()">Show tutorial</ion-button>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <div>1. Select your two cards from the Cards Section</div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <div>2. Select the dealers card from the Cards Section</div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <div>3. Click Calculate</div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <div>4. See what the App suggests you to do in the You Should Section</div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <div>5. If you hit, select your next card and click Calculate</div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <div>6. If the round is over reset and start with 1.</div>
-      </ion-col>
-    </ion-row>
-
-  </ion-grid>
-
+  <ion-list>
+    <ion-item>
+      <ion-button expand="block" (click)="startTuturial()">Show tutorial</ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label text-wrap>1. Select your two cards from the card section</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label text-wrap>2. Select the dealers card from the card section</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label text-wrap>3. Click Calculate</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label text-wrap>4. The App suggest your Action</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label text-wrap>5. Contemplate and perform your action</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label text-wrap>6. If the round is over click reset and start over ;-)</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

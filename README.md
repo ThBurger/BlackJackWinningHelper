@@ -1,5 +1,5 @@
 
-# BlackJackWinningHelper
+# BlackjackWinHelper
 
 ionic start BlackJackWinningHelper sidemenu --type=angular --capacitor
 

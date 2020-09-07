@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Black Jack</ion-title>
+    <ion-title>Blackjack Win Helper</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -68,6 +68,7 @@
 </ion-content>
 
 <div class="footer"> 
-  <ion-button expand="block" [disabled]="disabled" (click)="calculate()">Calculate</ion-button>
+  <ion-button *ngIf="!autocalc" expand="block" [disabled]="disabled" (click)="calculate()">Calculate</ion-button>
+  <ion-button *ngIf="autocalc" expand="block" [disabled]="disabled" (click)="calculate()">Auto Calculation is on</ion-button>
   <ion-button expand="block" (click)="reset()" color="danger">Reset</ion-button>
 </div>

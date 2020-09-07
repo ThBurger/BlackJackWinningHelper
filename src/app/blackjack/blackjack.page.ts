@@ -31,6 +31,7 @@ export class BlackjackPage implements OnInit {
   backside: string = 'blue';
   suits: string = 'hearts';
   loader: boolean = true;
+  autocalc: boolean = false;
 
   constructor(
     @Inject(DOCUMENT) private doc: Document,
@@ -49,6 +50,9 @@ export class BlackjackPage implements OnInit {
     });
     this.storage.get('strategy').then(res => {
       this.strategy = res;
+    });
+    this.storage.get('autocalc').then(res => {
+      this.autocalc = res;
     });
   }
 
@@ -94,10 +98,15 @@ export class BlackjackPage implements OnInit {
       this.yc5.classList.add('ion-color-warning');
     }
 
-    if (this.indexOfCards >=2 ) {
-      this.disabled = false;
-    }
     this.indexOfCards++;
+
+    if (this.indexOfCards > 2) {
+      if(this.autocalc) {
+        this.calculate();
+      } else {
+        this.disabled = false;
+      }
+    }
   }
 
   changeColors(actualCard: HTMLElement, nextCard: HTMLElement) {

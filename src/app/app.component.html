@@ -3,8 +3,9 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>Black Jack Winning</ion-list-header>
+          <ion-list-header>BlackJack Win Helper</ion-list-header>
           <ion-note>generate more money :-)</ion-note>
+          <ion-note>get the most out of your game</ion-note>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
