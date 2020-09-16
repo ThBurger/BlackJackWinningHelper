@@ -109,6 +109,7 @@ export class BlackjackPage implements OnInit {
     }
   }
 
+
   changeColors(actualCard: HTMLElement, nextCard: HTMLElement) {
     actualCard.classList.remove('ion-color-success');
     actualCard.classList.add('ion-color-warning');
@@ -202,6 +203,15 @@ export class BlackjackPage implements OnInit {
     this.dc1.classList.remove('ion-color-warning');
     this.dc1.classList.remove('ion-color-success');
     this.dc1.classList.add('ion-color-primary');
+  }
+
+  async falseCard(){
+    let message = 'Select the card from the Card Selection';
+      const toast = await this.toastController.create({
+        message: message,
+        duration: 2000
+      });
+      toast.present();
   }
 
   get yc1() : HTMLElement {
