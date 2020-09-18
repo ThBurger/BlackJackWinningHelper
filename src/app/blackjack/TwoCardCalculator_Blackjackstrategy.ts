@@ -164,7 +164,7 @@ export abstract class TwoCardCalculator_Blackjackstrategy {
         if (sum == 6) {
             return Helper.H;
         }
-        if (sum == 5) {
+        if (sum <= 5) {
             return Helper.H;
         }
         return "NO ACTIONS preffered -> HIT";

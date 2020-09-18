@@ -187,7 +187,7 @@ export abstract class TwoCardCalculator_Johnslots {
             }
             return Helper.H;
         }
-        if (sum == 8) {
+        if (sum <= 8) {
             return Helper.H;
         }
         return "NO ACTIONS preffered -> HIT";
