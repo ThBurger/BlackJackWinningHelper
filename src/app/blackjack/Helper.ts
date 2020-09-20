@@ -34,4 +34,20 @@ export abstract class Helper {
     public static filterSumArray(array: number[]) : number[] {
         return array.filter(function(value, index, arr){ return value <= 21;});
     }
+
+    public static shouldChangeCards(card1: string, card2: string): boolean {
+        if (card2 == "A" && 
+            (card1 == "2" ||
+             card1 == "3" ||
+             card1 == "4" ||
+             card1 == "5" ||
+             card1 == "6" ||
+             card1 == "7" ||
+             card1 == "8" ||
+             card1 == "9" ||
+             card1 == "10")) {
+            return true;
+        }
+        return false;
+    }
 }

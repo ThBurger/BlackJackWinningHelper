@@ -7,11 +7,11 @@ export abstract class TwoCardCalculator_Blackjackstrategy {
         dc: string,
         yc1: string,
         yc2: string): string {
-        if(isNumber(yc1) && !isNumber(yc2)) {
-            const changedCard = yc1;
-            yc1 = yc2;
-            yc2 = changedCard;
-        }
+            if(Helper.shouldChangeCards(yc1, yc2)) {
+                const changedCard = yc1;
+                yc1 = yc2;
+                yc2 = changedCard;
+            }
 
         if((yc1 == "A" && Helper.cardEquals10(yc2)) || (yc2 == "A" && Helper.cardEquals10(yc1))) {
             return Helper.B;

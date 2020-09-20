@@ -7,8 +7,7 @@ export abstract class TwoCardCalculator_Johnslots {
         dc: string,
         yc1: string,
         yc2: string): string {
-
-        if(isNumber(yc1) && !isNumber(yc2)) {
+        if(Helper.shouldChangeCards(yc1, yc2)) {
             const changedCard = yc1;
             yc1 = yc2;
             yc2 = changedCard;
@@ -105,6 +104,9 @@ export abstract class TwoCardCalculator_Johnslots {
             }
             return Helper.H;
         }
+        console.log('cards');
+        console.log(yc1);
+        console.log(yc2);
         if (yc1 == "A" && yc2 == "4") {
             if (dc == "4" || dc == "5" || dc == "6") {
                 return Helper.DD;
