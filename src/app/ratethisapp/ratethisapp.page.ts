@@ -12,8 +12,4 @@ export class RatethisappPage implements OnInit {
   ngOnInit() {
   }
 
-  google() {
-    
-  }
-
 }

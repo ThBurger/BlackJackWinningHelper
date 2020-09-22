@@ -206,7 +206,7 @@ export class BlackjackPage implements OnInit {
   }
 
   async falseCard(){
-    let message = 'Select the card from the Card Selection';
+    let message = 'select the cards from the Card Selection';
       const toast = await this.toastController.create({
         message: message,
         duration: 2000
