@@ -36,6 +36,9 @@ for splash screen repair copy following into app/res/values/styles.xml:
 apk in:
 android/app/build/outputs/apk/debug/app-debug.apk
 
+# update version code
+Android - android/app/build.gradle (you're looking for the versionName variable)
+
 # publish apk to play store
 https://ionicframework.com/docs/v1/guide/publishing.html
 
