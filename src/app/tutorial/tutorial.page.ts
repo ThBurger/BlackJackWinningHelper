@@ -26,6 +26,14 @@ export class TutorialPage implements OnInit {
       .then(() => this.storage.set('ion_did_tutorial', true));
   }
 
+  nextSlide() {
+    this.slides.slideNext();
+  }
+
+  prevSlide() {
+    this.slides.slidePrev();
+  }
+
   onSlideChangeStart(event) {
     event.target.isEnd().then(isEnd => {
       this.showSkip = !isEnd;

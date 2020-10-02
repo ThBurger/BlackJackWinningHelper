@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content fullscreen="true">
-  <ion-slides #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager="true">
+  <ion-slides #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager="false">
     <ion-slide>
       <img src="assets/img/ica-slidebox-img-1.png" class="slide-image" />
       <h2 class="slide-title">
@@ -17,6 +17,10 @@
       <p>
         With this app you will get the most out of your Blackjack games!
       </p>
+      <ion-button fill="clear" (click)="nextSlide()">
+        Next
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+      </ion-button>
     </ion-slide>
 
     <ion-slide>
@@ -24,6 +28,14 @@
       <h2 class="slide-title">What is it?</h2>
       <p>
         <b>Blackjack Win Helper</b> is an app which helps you to decide your next step on mathematical studies from experts</p>
+        <ion-button fill="clear" (click)="prevSlide()">
+          Previous
+          <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" (click)="nextSlide()">
+          Next
+          <ion-icon slot="end" name="arrow-forward"></ion-icon>
+        </ion-button>
     </ion-slide>
 
     <ion-slide>
@@ -31,11 +43,23 @@
       <h2 class="slide-title">How does it work?</h2>
       <p>
         Select your cards and the dealers card from the card section an press calculate, the app recommend your next action</p>
+        <ion-button fill="clear" (click)="prevSlide()">
+          Previous
+          <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" (click)="nextSlide()">
+          Next
+          <ion-icon slot="end" name="arrow-forward"></ion-icon>
+        </ion-button>
     </ion-slide>
 
     <ion-slide>
       <img src="assets/img/ica-slidebox-img-4.png" class="slide-image" />
       <h2 class="slide-title">Ready to Play?</h2>
+      <ion-button fill="clear" (click)="prevSlide()">
+        Previous
+        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      </ion-button>
       <ion-button fill="clear" (click)="startApp()">
         Continue
         <ion-icon slot="end" name="arrow-forward"></ion-icon>

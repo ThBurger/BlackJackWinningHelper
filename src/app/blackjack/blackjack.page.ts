@@ -96,6 +96,8 @@ export class BlackjackPage implements OnInit {
       this.yc5img.src = src;
       this.yc5.classList.remove('ion-color-primary');
       this.yc5.classList.add('ion-color-warning');
+    } else {
+      this.tooManyCards();
     }
 
     this.indexOfCards++;
@@ -109,11 +111,10 @@ export class BlackjackPage implements OnInit {
     }
   }
 
-
   changeColors(actualCard: HTMLElement, nextCard: HTMLElement) {
     actualCard.classList.remove('ion-color-success');
     actualCard.classList.add('ion-color-warning');
-    nextCard.classList.remove('ion-color-primary');
+    nextCard.classList.remove('ion-color-dark');
     nextCard.classList.add('ion-color-success');
   }
 
@@ -206,7 +207,20 @@ export class BlackjackPage implements OnInit {
   }
 
   async falseCard(){
-    let message = 'select the cards from the Card Selection';
+    if (this.indexOfCards > 5) {
+      this.tooManyCards();
+    } else {
+      let message = 'select the cards from the Card Selection';
+      const toast = await this.toastController.create({
+        message: message,
+        duration: 2000
+      });
+      toast.present();
+    }
+  }
+
+  async tooManyCards(){
+    let message = 'all cards selected please reset for next game';
       const toast = await this.toastController.create({
         message: message,
         duration: 2000

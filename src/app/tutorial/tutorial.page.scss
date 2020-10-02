@@ -17,6 +17,11 @@ ion-toolbar {
     margin: 36px 0;
     pointer-events: none;
   }
+
+  swiper-pagination {
+    bottom: 20px !important;
+    bottom: calc(env(safe-area-inset-bottom) + 20px) !important;
+    }
   
   b {
     font-weight: 500;
