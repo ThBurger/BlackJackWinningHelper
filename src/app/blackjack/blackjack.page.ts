@@ -93,7 +93,7 @@ export class BlackjackPage implements OnInit {
     } else if (this.indexOfCards == 5) {
       this.card5 = card;
       this.yc5img.src = src;
-      this.yc5.classList.remove('ion-color-primary');
+      this.yc5.classList.remove('ion-color-dark');
       this.yc5.classList.add('ion-color-warning');
     } else {
       this.tooManyCards();
@@ -190,19 +190,19 @@ export class BlackjackPage implements OnInit {
     this.yc1.classList.add('ion-color-success');
     this.yc2.classList.remove('ion-color-warning');
     this.yc2.classList.remove('ion-color-success');
-    this.yc2.classList.add('ion-color-primary');
+    this.yc2.classList.add('ion-color-dark');
     this.yc3.classList.remove('ion-color-warning');
     this.yc3.classList.remove('ion-color-success');
-    this.yc3.classList.add('ion-color-primary');
+    this.yc3.classList.add('ion-color-dark');
     this.yc4.classList.remove('ion-color-warning');
     this.yc4.classList.remove('ion-color-success');
-    this.yc4.classList.add('ion-color-primary');
+    this.yc4.classList.add('ion-color-dark');
     this.yc5.classList.remove('ion-color-warning');
     this.yc5.classList.remove('ion-color-success');
-    this.yc5.classList.add('ion-color-primary');
+    this.yc5.classList.add('ion-color-dark');
     this.dc1.classList.remove('ion-color-warning');
     this.dc1.classList.remove('ion-color-success');
-    this.dc1.classList.add('ion-color-primary');
+    this.dc1.classList.add('ion-color-dark');
   }
 
   async falseCard(){
@@ -212,7 +212,8 @@ export class BlackjackPage implements OnInit {
       let message = 'select the cards from the Card Selection';
       const toast = await this.toastController.create({
         message: message,
-        duration: 2000
+        duration: 2000,
+        position: 'top'
       });
       toast.present();
     }
@@ -222,7 +223,8 @@ export class BlackjackPage implements OnInit {
     let message = 'all cards selected please reset for next game';
       const toast = await this.toastController.create({
         message: message,
-        duration: 2000
+        duration: 2000,
+        position: 'top'
       });
       toast.present();
   }
