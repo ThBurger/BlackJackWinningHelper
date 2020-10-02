@@ -16,7 +16,6 @@ import { LoaderService } from '../services/loader.service';
   styleUrls: ['./blackjack.page.scss'],
 })
 export class BlackjackPage implements OnInit {
-
   public disabled = true;
   indexOfCards: number = 0;
   card1: string = '';

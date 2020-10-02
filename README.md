@@ -24,15 +24,6 @@ ionic capacitor sync android (does two things)
 OR
 ionic capacitor copy android
 
-for splash screen repair copy following into app/res/values/styles.xml:
-```
-    <style name="AppTheme.NoActionBarLaunch" parent="AppTheme.NoActionBar">
-        <item name="android:background">@drawable/splash</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowIsTranslucent">true</item>
-```
-
 apk in:
 android/app/build/outputs/apk/debug/app-debug.apk
 
