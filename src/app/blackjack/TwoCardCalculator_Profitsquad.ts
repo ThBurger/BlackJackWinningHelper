@@ -1,7 +1,7 @@
 import { isNumber } from 'util';
 import { Helper } from './Helper';
 
-export abstract class TwoCardCalculator_Blackjackstrategy {
+export abstract class TwoCardCalculator_Profitsquad {
 
     public static calculate(
         dc: string,
@@ -30,16 +30,11 @@ export abstract class TwoCardCalculator_Blackjackstrategy {
             return Helper.P;
         }
         if (yc1 == "8" && yc2 == "8") {
-            if (Helper.cardEquals10(dc) || dc == "A") {
-                return Helper.H;
-            }
             return Helper.P;
         }
         if (yc1 == "7" && yc2 == "7") {
-            if (dc == "8" || dc == "9" || dc == "A") {
+            if (dc == "8" || dc == "9" || Helper.cardEquals10(dc) || dc == "A") {
                 return Helper.H;
-            } else if(Helper.cardEquals10(dc)) {
-                return Helper.S;
             }
             return Helper.P;
         }
@@ -56,16 +51,19 @@ export abstract class TwoCardCalculator_Blackjackstrategy {
             return Helper.DD;
         }
         if (yc1 == "4" && yc2 == "4") {
+            if (dc == "5" || dc == "6") {
+                return Helper.P;
+            }
             return Helper.H;
         }
         if (yc1 == "3" && yc2 == "3") {
-            if (dc == "4" || dc == "5" || dc == "6" || dc == "7") {
+            if (dc == "2" || dc == "3" || dc == "4" || dc == "5" || dc == "6" || dc == "7") {
                 return Helper.P;
             }
             return Helper.H;
         }
         if (yc1 == "2" && yc2 == "2") {
-            if (dc == "3" || dc == "4" || dc == "5" || dc == "6" || dc == "7") {
+            if (dc == "2" || dc == "3" || dc == "4" || dc == "5" || dc == "6" || dc == "7") {
                 return Helper.P;
             }
             return Helper.H;
@@ -78,24 +76,41 @@ export abstract class TwoCardCalculator_Blackjackstrategy {
             return Helper.S;
         }
         if (yc1 == "A" && yc2 == "7") {
-            if (dc == "9" || Helper.cardEquals10(dc)) {
+            if (dc == "9" || Helper.cardEquals10(dc) || dc == "A") {
                 return Helper.H;
+            } else if (dc == "3" || dc == "4" || dc == "5" || dc == "6") {
+                return Helper.DD;
             }
             return Helper.S;
         }
         if (yc1 == "A" && yc2 == "6") {
+            if (dc == "3" || dc == "4" || dc == "5" || dc == "6") {
+                return Helper.DD;
+            }
             return Helper.H;
         }
         if (yc1 == "A" && yc2 == "5") {
+            if (dc == "4" || dc == "5" || dc == "6") {
+                return Helper.DD;
+            }
             return Helper.H;
         }
         if (yc1 == "A" && yc2 == "4") {
+            if (dc == "4" || dc == "5" || dc == "6") {
+                return Helper.DD;
+            }
             return Helper.H;
         }
         if (yc1 == "A" && yc2 == "3") {
+            if (dc == "5" || dc == "6") {
+                return Helper.DD;
+            }
             return Helper.H;
         }
         if (yc1 == "A" && yc2 == "2") {
+            if (dc == "5" || dc == "6") {
+                return Helper.DD;
+            }
             return Helper.H;
         }
         
@@ -138,7 +153,7 @@ export abstract class TwoCardCalculator_Blackjackstrategy {
             return Helper.H;
         }
         if (sum == 11) {
-            if (Helper.cardEquals10(dc) || dc == "A") {
+            if (dc == "A") {
                 return Helper.H;
             }
             return Helper.DD;
@@ -150,7 +165,7 @@ export abstract class TwoCardCalculator_Blackjackstrategy {
             return Helper.DD;
         }
         if (sum == 9) {
-            if (dc == "7" || dc == "8" || dc == "9" || Helper.cardEquals10(dc) || dc == "A") {
+            if (dc == "2" || dc == "7" || dc == "8" || dc == "9" || Helper.cardEquals10(dc) || dc == "A") {
                 return Helper.H;
             }
             return Helper.DD;

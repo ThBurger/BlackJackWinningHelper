@@ -1,6 +1,6 @@
 import { Helper } from './Helper';
 
-export abstract class MoreCardCalculator_Blackjackstrategy {
+export abstract class MoreCardCalculator_Profitsquad {
 
     public static calculate(
         dc: string,
@@ -9,7 +9,6 @@ export abstract class MoreCardCalculator_Blackjackstrategy {
         yc3: string,
         yc4: string,
         yc5: string): string {
-
         // start SUM
         let card1, card2, card3, card4, card5, sum, aces = 0;
         card1 = Helper.calculateCard(yc1);
@@ -75,7 +74,7 @@ export abstract class MoreCardCalculator_Blackjackstrategy {
             return Helper.H;
         }
         if (filteredSumArray.includes(11)) {
-            if (Helper.cardEquals10(dc) || dc == "A") {
+            if (dc == "A") {
                 return Helper.H;
             }
             return Helper.DD;
@@ -87,7 +86,7 @@ export abstract class MoreCardCalculator_Blackjackstrategy {
             return Helper.DD;
         }
         if (filteredSumArray.includes(9)) {
-            if (dc == "7" || dc == "8" || dc == "9" || Helper.cardEquals10(dc) || dc == "A") {
+            if (dc == "2" || dc == "7" || dc == "8" || dc == "9" || Helper.cardEquals10(dc) || dc == "A") {
                 return Helper.H;
             }
             return Helper.DD;

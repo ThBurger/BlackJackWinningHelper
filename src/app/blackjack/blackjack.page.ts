@@ -2,9 +2,9 @@ import { Component, Inject, OnInit} from '@angular/core';
 
 import { DOCUMENT} from '@angular/common';
 import { TwoCardCalculator_Johnslots } from './TwoCardCalculator_Johnslots';
-import { TwoCardCalculator_Blackjackstrategy } from './TwoCardCalculator_Blackjackstrategy';
+import { TwoCardCalculator_Profitsquad } from './TwoCardCalculator_Profitsquad';
 import { MoreCardCalculator_Johnslots } from './MoreCardCalculator_Johnslots';
-import { MoreCardCalculator_Blackjackstrategy } from './MoreCardCalculator_Blackjackstrategy';
+import { MoreCardCalculator_Profitsquad } from './MoreCardCalculator_Profitsquad';
 import { ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Helper } from './Helper';
@@ -123,8 +123,8 @@ export class BlackjackPage implements OnInit {
       if (this.strategy == 1) { //Johnslots
         action = TwoCardCalculator_Johnslots
         .calculate(this.dealerCard, this.card1, this.card2);
-      } else if (this.strategy == 2) { //BlackJackStrategy
-        action = TwoCardCalculator_Blackjackstrategy
+      } else if (this.strategy == 2) { //Profitsquad
+        action = TwoCardCalculator_Profitsquad
         .calculate(this.dealerCard, this.card1, this.card2);
       } else { // no impl
         action = 'no impl of strategy' + this.strategy
@@ -133,8 +133,8 @@ export class BlackjackPage implements OnInit {
       if (this.strategy == 1) { //Johnslots
         action = MoreCardCalculator_Johnslots
         .calculate(this.dealerCard, this.card1, this.card2, this.card3, this.card4, this.card5);
-      } else if (this.strategy == 2) { //BlackJackStrategy
-        action = MoreCardCalculator_Blackjackstrategy
+      } else if (this.strategy == 2) { //Profitsquad
+        action = MoreCardCalculator_Profitsquad
         .calculate(this.dealerCard, this.card1, this.card2, this.card3, this.card4, this.card5);
       } else { // no impl
         action = 'no impl of strategy' + this.strategy
